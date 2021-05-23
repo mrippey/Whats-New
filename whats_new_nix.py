@@ -55,9 +55,10 @@ def extract_new_nix_files(fpath):
                 print(str(dir_and_file_info))
 
         print("*" * 100)
-        print("\n[+] Scan Complete")
+        print("\n[+] Scan complete")
 
     except FileNotFoundError as err:
+        print()
         logging.error(f" Directory {err.filename} may not exist, try again...")
 
 
