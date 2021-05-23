@@ -43,7 +43,7 @@ def check_file_time(ftime):
 
 
 def extract_modified_win_files(fpath):
-    tree = pathlib.Path(fpath)
+    tree = pathlib.PureWindowsPath(fpath)
     if platform.system() != "Windows":
 
         return 'Platform Not Yet Supported'
