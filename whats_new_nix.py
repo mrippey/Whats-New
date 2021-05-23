@@ -14,7 +14,7 @@ import platform
 
 
 # List of file extensions to look for 
-common_nix_mac_extensions = {
+common_nix_extensions = {
     ".app",
     ".sh",
     ".tgz",
@@ -49,7 +49,7 @@ def extract_new_nix_files(fpath):
         time.sleep(2)
 
         for entry in tree.iterdir():
-            if entry.suffix in common_nix_mac_extensions:
+            if entry.suffix in common_nix_extensions:
                 file_date = entry.stat()
                 dir_and_file_info = f"{entry.name:<25s} Last Modified: {check_file_time(file_date.st_birthtime):<12s}"
                 print(str(dir_and_file_info))
