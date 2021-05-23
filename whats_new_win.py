@@ -49,7 +49,7 @@ def extract_modified_win_files(fpath):
         return 'Platform Not Yet Supported'
 
     try:
-        print("\n[+] Windows OS found, Searching for files...\n")
+        print("\n[+] Windows OS found, searching for files...\n")
         print("*" * 100)
         time.sleep(2)
 
@@ -63,6 +63,7 @@ def extract_modified_win_files(fpath):
        print('\n[+] Scan complete')
 
     except FileNotFoundError as err:
+        print()
         logging.error(f"File/Directory {err.filename} could not be found")
 
 
