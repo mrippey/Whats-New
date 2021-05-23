@@ -44,7 +44,7 @@ def extract_new_nix_files(fpath):
         return 'Platform Not Yet Supported'
 
     try:
-        print("\n[+] *Nix System Identified, Searching for files...\n")
+        print("\n[+] this must be a *nix system, searching for files...\n")
         print("*" * 100)
         time.sleep(2)
 
