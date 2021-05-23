@@ -2,7 +2,6 @@ from datetime import datetime
 import pathlib
 import platform
 import time
-import logging
 
 windows_extensions = {
     ".bat",
@@ -64,7 +63,7 @@ def extract_modified_win_files(fpath):
 
     except FileNotFoundError as err:
         print()
-        logging.error(f"File/Directory {err.filename} could not be found")
+        print(f" Path: {err.filename} may not exist, try again...")
 
 
         
