@@ -62,7 +62,7 @@ def extract_modified_win_files(fpath):
                 print(dir_and_file_info)
 
     except FileNotFoundError as err:
-        logging.error(f"{err.filename} could not be found")
+        logging.error(f"File/Directory {err.filename} could not be found")
 
 
         
