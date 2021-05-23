@@ -9,7 +9,6 @@ Copyright 2021 Michael Rippey
 from datetime import datetime 
 from pathlib import Path
 import time 
-import logging
 import platform
 
 
