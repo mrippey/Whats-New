@@ -49,7 +49,7 @@ def extract_modified_win_files(fpath):
         return 'Platform Not Yet Supported'
 
     try:
-        print("*Nix System Identified, Searching for files...\n")
+        print("Windows System Identified, Searching for files...\n")
         print("*" * 100)
         time.sleep(3)
         # tree = pathlib.Path(fpath)
@@ -64,4 +64,6 @@ def extract_modified_win_files(fpath):
     except FileNotFoundError as err:
         logging.error(f"{err.filename} could not be found")
 
+
+        
 extract_modified_win_files("Provide a Windows Path")
