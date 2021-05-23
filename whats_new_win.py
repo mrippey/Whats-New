@@ -49,17 +49,18 @@ def extract_modified_win_files(fpath):
         return 'Platform Not Yet Supported'
 
     try:
-        print("Windows System Identified, Searching for files...\n")
+        print("\n[+] Windows OS found, Searching for files...\n")
         print("*" * 100)
-        time.sleep(3)
-        # tree = pathlib.Path(fpath)
+        time.sleep(2)
 
         for entry in tree.iterdir():
             if entry.suffix in windows_extensions:
                 file_date = entry.stat()
                 dir_and_file_info = f"{entry.name}\t  Last Modified: {check_file_time(file_date.st_ctime)}"
-                # print(f'{entry.name}\t last modified: {check_file_time(file_date.st_mtime)}')
+
                 print(dir_and_file_info)
+       print('*' * 100)
+       print('\n[+] Scan complete')
 
     except FileNotFoundError as err:
         logging.error(f"File/Directory {err.filename} could not be found")
