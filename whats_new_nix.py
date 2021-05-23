@@ -59,7 +59,7 @@ def extract_new_nix_files(fpath):
 
     except FileNotFoundError as err:
         print()
-        logging.error(f" Directory {err.filename} may not exist, try again...")
+        print(f" Path: {err.filename} may not exist, try again...")
 
 
 extract_new_nix_files("Provide a *nix like path")
