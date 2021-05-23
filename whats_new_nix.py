@@ -5,7 +5,7 @@ Author: Michael Rippey (c) 2021
 
 Copyright 2021 Michael Rippey
 """
-#!/usr/bin/python
+
 from datetime import datetime 
 from pathlib import Path
 import time 
@@ -14,7 +14,7 @@ import platform
 
 
 # List of file extensions to look for 
-nix_mac_extensions = {
+common_nix_mac_extensions = {
     ".app",
     ".sh",
     ".tgz",
@@ -44,23 +44,21 @@ def extract_new_nix_files(fpath):
         return 'Platform Not Yet Supported'
 
     try:
-        print("\n*Nix System Identified, Searching for files...\n")
+        print("\n[+] *Nix System Identified, Searching for files...\n")
         print("*" * 100)
-        time.sleep(3)
-        # tree = pathlib.Path(fpath)
+        time.sleep(2)
 
         for entry in tree.iterdir():
-            if entry.suffix in nix_mac_extensions:
+            if entry.suffix in common_nix_mac_extensions:
                 file_date = entry.stat()
-                dir_and_file_info = f"{entry.name:<25s} Last Modified: {check_file_time(file_date.st_ctime):<12s}"
-                # print(f'{entry.name}\t last modified: {check_file_time(file_date.st_mtime)}')
+                dir_and_file_info = f"{entry.name:<25s} Last Modified: {check_file_time(file_date.st_birthtime):<12s}"
                 print(str(dir_and_file_info))
 
         print("*" * 100)
-        print("\nScan Complete")
+        print("\n[+] Scan Complete")
 
     except FileNotFoundError as err:
-        logging.error(f"{err.filename} could not be found")
+        logging.error(f" Directory {err.filename} may not exist, try again...")
 
 
 extract_new_nix_files("Provide a *nix like path")
