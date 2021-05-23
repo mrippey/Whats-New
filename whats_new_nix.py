@@ -37,28 +37,33 @@ def check_file_time(file_mod_time):
     return mod_time.strftime("%d %b %Y")
 
 
-def extract_new_nix_files(fpath):
+def extract_files_check(fpath):
     tree = pathlib.PosixPath(fpath)
+
     if platform.system() != "Darwin":
-        return 'Platform Not Yet Supported'
+        print('Platform Not Yet Supported')
+        sys.exit()
 
     try:
-        print("\n[+] this must be a *nix system, searching for files...\n")
-        print("*" * 100)
-        time.sleep(2)
-
-        for entry in tree.iterdir():
-            if entry.suffix in common_nix_extensions:
-                file_date = entry.stat()
-                dir_and_file_info = f"{entry.name:<25s} Last Modified: {check_file_time(file_date.st_birthtime):<12s}"
-                print(str(dir_and_file_info))
-
-        print("*" * 100)
-        print("\n[+] Scan complete")
-
+        from_new_nix_files(tree)
     except FileNotFoundError as err:
         print()
-        print(f" Path: {err.filename} may not exist, try again...")
+        print(f' ERROR: Path > {err.filename} may not exist, try again...')
+
+def from_new_nix_files(tree):
+    print("\n[+] *nix OS, checking path and files...\n")
+    print("*" * 100)
+    time.sleep(2)
+
+    for entry in tree.iterdir():
+        if entry.suffix in nix_mac_extensions:
+
+            file_date = entry.stat()
+            dir_and_file_info = f"{entry.name:<25s} Last Modified: {check_file_time(file_date.st_birthtime):<12s}"
+            print(str(dir_and_file_info))
+
+    print("*" * 100)
+    print("\n[+] Scan complete")
 
 
-extract_new_nix_files("Provide a *nix like path")
+extract_files_check("*nix like path")
