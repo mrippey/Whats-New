@@ -41,7 +41,7 @@ def check_file_time(file_mod_time):
 def extract_new_nix_files(fpath):
     tree = pathlib.PosixPath(fpath)
     if platform.system() != "Darwin":
-        return
+        return 'Platform Not Yet Supported'
 
     try:
         print("\n*Nix System Identified, Searching for files...\n")
