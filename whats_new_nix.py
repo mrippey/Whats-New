@@ -27,6 +27,7 @@ common_nix_extensions = {
     ".desktop",
     ".ko",
     ".txt",
+    ".so",
 }
 
 
