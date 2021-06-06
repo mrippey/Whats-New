@@ -1,17 +1,10 @@
-__author__ = "Michael Rippey"
-__date__ = "2021/05/23"
-
-"""
-Author: Michael Rippey (c) 2021
-Copyright 2021 Michael Rippey
-
-"""
-
 from datetime import datetime
 import pathlib
 import time
 import platform
 import sys
+__author__ = "Michael Rippey"
+__date__ = "2021/05/23"
 
 # List of file extensions to look for 
 common_nix_extensions = {
