@@ -7,10 +7,10 @@ Copyright 2021 Michael Rippey
 """
 
 from datetime import datetime 
-from pathlib import Path
+import pathlib
 import time 
 import platform
-
+import sys
 
 # List of file extensions to look for 
 common_nix_extensions = {
@@ -57,11 +57,13 @@ def from_new_nix_files(tree):
     time.sleep(2)
 
     for entry in tree.iterdir():
-        if entry.suffix in nix_mac_extensions:
+        if entry.suffix in common_nix_extensions:
+           file_date = entry.stat()
+           dir_and_file_info = f"{entry.name:<25s} Last Modified: {check_file_time(file_date.st_birthtime):<12s}"
+           print(str(dir_and_file_info))
+            
 
-            file_date = entry.stat()
-            dir_and_file_info = f"{entry.name:<25s} Last Modified: {check_file_time(file_date.st_birthtime):<12s}"
-            print(str(dir_and_file_info))
+           
 
     print("*" * 100)
     print("\n[+] Scan complete")
