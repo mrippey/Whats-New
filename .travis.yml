@@ -1,0 +1,10 @@
+language: python
+python:
+  - 3.9
+script:
+  - pytest 
+  
+notifications:
+  - rippeymb@gmail.com
+  on_success: never
+  on_failure: always
