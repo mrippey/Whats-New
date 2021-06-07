@@ -1,3 +1,6 @@
+[![Python application](https://github.com/msec1203/Whats-New/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/msec1203/Whats-New/actions/workflows/python-app.yml)
+
+
 # Whats-New
 File Discovery Tool
 
